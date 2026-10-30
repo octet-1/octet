@@ -6,8 +6,8 @@ import { Container } from "./section"
 
 export function FinalCta() {
   return (
-    <section id="get-started" className="border-b border-border">
-      <Container className="relative overflow-hidden">
+    <section id="get-started">
+      <Container className="relative overflow-hidden border-b border-border">
         <DitherBg />
         <div className="relative flex flex-col items-start gap-6 px-4 py-20 sm:px-8 md:items-center md:py-28 md:text-center">
           <h2 className="max-w-2xl text-3xl font-semibold tracking-tight text-balance md:text-5xl">{finalCta.title}</h2>

@@ -7,7 +7,7 @@ import { Section } from "./section"
 export function CodeShowcase() {
   return (
     <Section id="code" index="02" label="Developers" title={code.title} subtitle={code.subtitle}>
-      <div className="grid gap-px bg-border lg:grid-cols-[1.4fr_1fr]">
+      <div className="grid divide-y divide-border lg:grid-cols-[1.4fr_1fr] lg:divide-x lg:divide-y-0">
         <div className="min-w-0 bg-background p-4 sm:p-8">
           <Tabs defaultValue={code.snippets[0].id} className="gap-0 overflow-hidden rounded-xl border border-border bg-card">
             <div className="flex items-center justify-between border-b border-border px-3 py-2">

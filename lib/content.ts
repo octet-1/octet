@@ -197,6 +197,17 @@ export const pricing = {
   ],
 }
 
+export const faqAside = {
+  title: "Still have questions?",
+  description: "Our engineers answer in the community and over email. No sales scripts, just people who build Octet.",
+  primary: "Talk to an engineer",
+  secondary: "Browse the docs",
+  stats: [
+    { value: "<2h", label: "median first reply" },
+    { value: "4.9/5", label: "support rating" },
+  ],
+}
+
 export const faq = [
   {
     q: "How is Octet different from running my own queue?",
