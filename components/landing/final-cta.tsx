@@ -14,13 +14,13 @@ export function FinalCta() {
           <p className="max-w-lg text-pretty text-muted-foreground">{finalCta.subtitle}</p>
           <div className="flex flex-col gap-3 sm:flex-row">
             <Button size="lg" className="h-10 bg-brand px-4 text-brand-foreground hover:bg-brand/90" asChild>
-              <a href={site.signUpUrl}>
+              <a href={site.contactUrl}>
                 {finalCta.primary}
                 <ArrowRightIcon data-icon="inline-end" />
               </a>
             </Button>
             <Button size="lg" variant="outline" className="h-10 bg-background px-4" asChild>
-              <a href="#">{finalCta.secondary}</a>
+              <a href={site.howItWorksUrl}>{finalCta.secondary}</a>
             </Button>
           </div>
         </div>

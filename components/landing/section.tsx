@@ -37,7 +37,7 @@ export function Section({
       <Container className={cn("border-b border-border", className)}>
         <div className="flex flex-col gap-4 border-b border-border px-4 py-12 sm:px-8 md:py-16">
           <SectionLabel index={index}>{label}</SectionLabel>
-          <h2 className="max-w-2xl text-3xl font-semibold tracking-tight text-balance md:text-4xl">{title}</h2>
+          <h2 className="max-w-3xl text-3xl font-semibold tracking-tight text-balance md:text-4xl">{title}</h2>
           {subtitle && <p className="max-w-xl text-pretty text-muted-foreground">{subtitle}</p>}
         </div>
         {children}

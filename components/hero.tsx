@@ -27,9 +27,9 @@ export function Hero() {
         </header>
 
         <div className="mt-auto flex items-end justify-between gap-8 px-4 pb-12 sm:px-8 md:pb-16">
-          <div className="max-w-2xl">
+          <div className="max-w-4xl">
             <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em]">{hero.badge}</p>
-            <h1 className="text-5xl font-semibold leading-[0.95] tracking-tight md:text-7xl">
+            <h1 className="text-4xl font-semibold leading-[0.95] tracking-tight sm:text-5xl md:text-7xl">
               {hero.title.map((line) => (
                 <span key={line} className="block">
                   {line}
@@ -45,12 +45,11 @@ export function Hero() {
                 {hero.primaryCta}
               </a>
               <a
-                href={site.docsUrl}
+                href={site.howItWorksUrl}
                 className="inline-flex h-10 items-center rounded-lg border border-hero-foreground/70 px-4 text-sm font-medium transition-colors outline-none hover:bg-hero-foreground/10 focus-visible:ring-2 focus-visible:ring-hero-foreground"
               >
                 {hero.secondaryCta}
               </a>
-              <code className="font-mono text-xs opacity-90">$ {hero.install}</code>
             </div>
           </div>
           <span aria-hidden className="hidden font-mono text-xs md:block">

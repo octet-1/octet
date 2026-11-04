@@ -6,23 +6,23 @@ export function SiteFooter() {
   return (
     <footer>
       <Container className="overflow-hidden">
-        <div className="grid gap-10 px-4 py-12 sm:px-8 md:grid-cols-[1.2fr_repeat(4,1fr)]">
+        <div className="grid gap-10 px-4 py-12 sm:px-8 md:grid-cols-[2fr_1fr_1fr]">
           <div className="flex flex-col gap-4">
             <Logo />
             <p className="flex items-center gap-2 font-mono text-xs text-muted-foreground">
               <span className="size-1.5 rounded-full bg-success" />
-              All systems operational
+              {footer.status}
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 md:col-span-4">
+          <div className="grid grid-cols-2 gap-8 md:col-span-2">
             {footer.columns.map((column) => (
               <div key={column.title} className="flex flex-col gap-3">
                 <p className="font-mono text-xs text-muted-foreground uppercase">{column.title}</p>
                 <ul className="flex flex-col gap-2">
                   {column.links.map((link) => (
-                    <li key={link}>
-                      <a href="#" className="text-sm text-foreground/80 transition-colors hover:text-brand">
-                        {link}
+                    <li key={link.label}>
+                      <a href={link.href} className="text-sm text-foreground/80 transition-colors hover:text-brand">
+                        {link.label}
                       </a>
                     </li>
                   ))}

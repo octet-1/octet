@@ -35,11 +35,8 @@ export function SiteHeader() {
           </nav>
         </div>
         <div className="hidden items-center gap-2 md:flex">
-          <Button variant="ghost" size="lg" asChild>
-            <a href={site.githubUrl}>Sign in</a>
-          </Button>
           <Button size="lg" className="bg-brand text-brand-foreground hover:bg-brand/90" asChild>
-            <a href={site.signUpUrl}>Get started</a>
+            <a href={site.signUpUrl}>Become a design partner</a>
           </Button>
         </div>
         <Sheet>
@@ -62,11 +59,8 @@ export function SiteHeader() {
               ))}
             </nav>
             <div className="mt-auto flex flex-col gap-2 p-4">
-              <Button variant="outline" size="lg" asChild>
-                <a href={site.githubUrl}>Sign in</a>
-              </Button>
               <Button size="lg" className="bg-brand text-brand-foreground hover:bg-brand/90" asChild>
-                <a href={site.signUpUrl}>Get started</a>
+                <a href={site.signUpUrl}>Become a design partner</a>
               </Button>
             </div>
           </SheetContent>

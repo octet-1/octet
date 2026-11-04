@@ -1,47 +1,47 @@
-import type { Feature } from "@/lib/content"
+import type { Step } from "@/lib/content"
 import { cn } from "@/lib/utils"
 
 // Small hand-drawn diagrams. "*" marks characters rendered in the brand color.
-const DIAGRAMS: Record<Feature["diagram"], string> = {
-  queue: `
- producer   queue         worker
- ┌──────┐  ┌────────┐   ┌───────┐
- │ push │─▶│*██████*░░│──▶│ *✓* ack │
- └──────┘  └────────┘   └───┬───┘
-               ▲  retry x3  │
-               └────────────┘
+const DIAGRAMS: Record<Step["diagram"], string> = {
+  connect: `
+ github app
+ ┌─────────┐   ┌─ api-server  *✓*
+ │ install │──▶├─ web-app     *✓*
+ └─────────┘   └─ mobile-app  *✓*
 `,
-  cron: `
- every weekday at *09:00* UTC
- ┌────────────────────────────┐
- │ mo  tu  we  th  fr  sa  su │
- │ *●*   *●*   *●*   *●*   *●*   ·   ·  │
- └────────────────────────────┘
- next run ──▶ *in 14h 22m*
+  map: `
+ GET /v1/invoices
+  ├─ web-app/lib/billing.ts:42
+  ├─ web-app/hooks/invoice.ts:18
+  └─ mobile-app/api/client.ts:97
+ *3 calls found*
 `,
-  webhook: `
- stripe ─┐
- github ─┼──▶ [ *verify* ] ──▶ handler
- slack  ─┘        │
-          replay ◀┘   sig *✓*
+  check: `
+ PR #412  due → due_date
+
+ none · additive · *[breaking]*
+
+ affects *3 calls* in 2 repos
 `,
-  workflow: `
- ┌──────┐   ┌──────┐   ┌──────┐
- │ s1 *✓* │──▶│ s2 *✓* │──▶│ s3 *…* │
- └──────┘   └──────┘   └──────┘
-   sleep("3d") ··· resume *▶*
+  fix: `
+ web-app  PR #88
+ - invoice.due
+ + *invoice.due_date*
+
+ tests *✓*   ready for review
 `,
-  edge: `
-    ·  *◉* iad    ·    *◉* fra   ·
-  ·    ·    *◉* gru   ·   *◉* sin
-    *◉* sfo  ·    ·   *◉* nrt   ·
-    p50 *38ms*   regions *32*
+  version: `
+ app v2.3 ──▶ /v1  *live*
+ app v2.4 ──▶ /v2  *live*
+
+ /v1 stays up until
+ clients migrate
 `,
-  logs: `
- 12:04:01 *✓* load-user    32ms
- 12:04:01 · wait-a-bit   10m
- 12:14:01 *✓* send-email  118ms
- ▁▂▃▅▇▅▃▂▁▂▃▅*▇█▇*▅▃▂  trace
+  adopt: `
+ + GET /v1/invoices/export  *new*
+
+ web-app    ──▶ PR: *use it*
+ mobile-app ──▶ note: *how to*
 `,
 }
 
@@ -63,7 +63,7 @@ function renderLine(line: string, key: number) {
   )
 }
 
-export function AsciiDiagram({ type, className }: { type: Feature["diagram"]; className?: string }) {
+export function AsciiDiagram({ type, className }: { type: Step["diagram"]; className?: string }) {
   const lines = DIAGRAMS[type].replace(/^\n|\n$/g, "").split("\n")
   return (
     <pre aria-hidden className={cn("ascii overflow-hidden text-[11px] text-muted-foreground", className)}>

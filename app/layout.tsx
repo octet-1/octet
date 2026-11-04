@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Octet — Infrastructure primitives for developers",
+  title: "Octet — API changes arrive as PRs, not outages",
   description:
-    "Queues, cron, webhooks and durable workflows behind one typed SDK.",
+    "When an API changes, Octet finds every place your code calls it and opens a pull request with the fix.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
